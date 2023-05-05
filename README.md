@@ -1,0 +1,9 @@
+# PSWRD-Manager
+## Trabalho de Projeto de Desenvolvimento de Software da disciplina de Engenharia de Software - Curso de Engenharia de Computação UNIPAMPA
+
+Com o crescente número de aplicativos e páginas da web com os quais temos que lidar no nosso cotidiano, cada vez mais temos cadastros e contas para memorizar e organizar e como consequência disso, uma incontável quantidade de senhas de acesso somos obrigados a guardar. Mas onde? Confiar tudo para nossa falha memória, anotar num caderno, guardar num arquivo no computador? O primeiro carece de segurança, pois facilmente esquecemos as senhas pouco utilizadas, os demais podem sem muita dificuldade cair em mãos erradas e possibilitarmos o acesso a todos nossos serviços essenciais como contas de banco e e-mails a qualquer um em posse de nosso login e senha.
+
+Como uma possível solução para este problema desenvolveremos um gerenciador de senhas que armazena os logins e senhas do usuário localmente e criptografadas. Com o objetivo de evitar um _middle-man_  entre o usuário e suas senhas.
+
+A ferramenta de armazenamento de senhas pode ser escalada como uma possível solução.Alguns modelos de base para este tipo de ferramenta são: Kaspersky Password Manager da empresa russa Kaspersky, o LastPass da empresa de mesmo nome e a 1Password da AgileBits Inc. Estas ferramentas são boas soluções por conta de sua facilidade e menor vulnerabilidade do que quando comparadas aos gerenciadores de senhas já incluso nos _browsers_ utilizados por muitos usuários, Google Chrome e Mozilla Firefox, por exemplo, sequer criptografam as senhas armazenadas, qualquer um que tenha acesso aos arquivos onde eles guardam as senhas pode extraí-las sem dificuldade. Já os serviços que possuem integração entre computador e smartphone tem a vulnerabilidade de vazamentos das senhas, já ocorridos algumas vezes.chaves e
+_ 
