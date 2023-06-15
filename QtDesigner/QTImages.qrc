@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="Logo">
+    <file>Images/paypal.svg</file>
+  </qresource>
+  <qresource prefix="Search">
+    <file>Images/search.svg</file>
+  </qresource>
+  <qresource prefix="Bookmark">
+    <file>Images/bookmark.svg</file>
+  </qresource>
+  <qresource prefix="WifiPass">
+    <file>Images/wifiPass.png</file>
+  </qresource>
+  <qresource prefix="Key">
+    <file>Images/key.svg</file>
+  </qresource>
+  <qresource prefix="Avatar">
+    <file>Images/profile circled.svg</file>
+  </qresource>
+  <qresource prefix="Close">
+    <file>Images/X.png</file>
+  </qresource>
+</RCC>
