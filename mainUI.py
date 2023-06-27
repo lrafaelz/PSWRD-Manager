@@ -1,8 +1,13 @@
 import QtDesigner.QTImages_rc
 from PyQt5 import uic , QtWidgets
+from PyQt5.QtWidgets import QVBoxLayout, QGridLayout, QPushButton, QCheckBox
+
 #
 # Styles
 #
+# https://www.youtube.com/watch?v=4BZL3cF_Dww&t=66s
+# https://stackoverflow.com/questions/22255994/pyqt-adding-widgets-to-scrollarea-during-the-runtime
+ 
 
 style_inputTextOK = ("QLineEdit{\n"
 "    border: 2px solid rgb(14, 78, 20);\n"
@@ -91,6 +96,8 @@ class LoginWindow(object):
                 #
                 #
                 loginUi.frame_error.setStyleSheet(stylePopupOK)
+                mainMenu.openMainMenuUI()
+                
  
     def openLoginUI(self):
         print("openLoginUI")
@@ -98,6 +105,7 @@ class LoginWindow(object):
         if newDataframeUi.isVisible():
             newDataframeUi.hide()
         self.setupLoginUI()
+
 
     def setupLoginUI(self):
         #
@@ -167,10 +175,10 @@ class RegisterWindow(object):
         else:
                 text = "Register: OK"
                 showMessage(text)
-                newDataframeUi.frame_error.setStyleSheet(stylePopupOK)
                 # Adicionar função para salvar e visualizar o novo banco
                 #
-                #
+
+
     def openNewDfUI(self):
         print("openNewDf")
         loginUi.hide()
@@ -194,6 +202,45 @@ class RegisterWindow(object):
         # pushbutton voltar
         newDataframeUi.pushButton_back.clicked.connect(login.openLoginUI)
 
+class MainMenuWindow(object):
+        n = 0
+        def openMainMenuUI(self):
+                print("openMainMenuUI")
+                mainMenuUi.show()
+                loginUi.hide()
+                self.setupMainMenuUI()
+        
+        def setupMainMenuUI(self):
+                #
+                # FUNCTIONS
+                #
+                # pushbutton close popup error
+                
+                mainMenuUi.pushButton_closeError.clicked.connect(mainMenuUi.frame_error.hide)
+                # hide frame error
+                mainMenuUi.frame_error.hide()
+
+                # pushbutton adicionar nova senha
+                mainMenuUi.pushButton_addNewPSWRD.clicked.connect(self.onAddWidget)
+
+
+
+
+        
+        def addPSWRD(self):
+                print("addPSWRD")
+        
+        def onAddWidget(self):
+
+                layout = mainMenuUi.frame_addNewPSWRD.layout()
+                newLayout = QGridLayout(mainMenuUi.frame_addNewPSWRD)
+                buttonText = "teste"
+                button = QPushButton(buttonText, mainMenuUi.frame_addNewPSWRD)
+                newLayout.addWidget(button)
+
+
+        def editPSWRD(self):
+               print("editPSWRD")
 
 if __name__ == "__main__":
     # instance app
@@ -201,10 +248,12 @@ if __name__ == "__main__":
     # loading Ui
     loginUi = uic.loadUi('QtDesigner/login.ui')
     newDataframeUi = uic.loadUi('QtDesigner/newDF.ui')
+    mainMenuUi = uic.loadUi('QtDesigner/mainMenu.ui')
 
     # instance classes
     login = LoginWindow()
     register = RegisterWindow()
+    mainMenu = MainMenuWindow()
 
     # functions
     login.openLoginUI()

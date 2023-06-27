@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>975</width>
-    <height>730</height>
+    <width>976</width>
+    <height>733</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,6 +39,12 @@
     </property>
     <item>
      <widget class="QFrame" name="Header">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -62,13 +68,13 @@
         <widget class="QFrame" name="frame_logo">
          <property name="minimumSize">
           <size>
-           <width>140</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
+           <width>313</width>
            <height>70</height>
           </size>
          </property>
@@ -83,6 +89,12 @@
             <width>50</width>
             <height>50</height>
            </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
           </property>
           <property name="maximumSize">
            <size>
@@ -100,11 +112,17 @@
          <widget class="QLabel" name="logoTitle">
           <property name="geometry">
            <rect>
-            <x>55</x>
-            <y>10</y>
+            <x>60</x>
+            <y>5</y>
             <width>101</width>
             <height>38</height>
            </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>101</width>
+            <height>38</height>
+           </size>
           </property>
           <property name="maximumSize">
            <size>
@@ -270,6 +288,12 @@ QPushButton:pressed{
        </property>
        <item>
         <widget class="QFrame" name="sidebar">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
            <width>200</width>
@@ -288,8 +312,8 @@ QPushButton:pressed{
          <widget class="QLabel" name="avatar">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>15</y>
+            <x>8</x>
+            <y>20</y>
             <width>51</width>
             <height>51</height>
            </rect>
@@ -316,10 +340,10 @@ QPushButton:pressed{
          <widget class="QLabel" name="criptografia_warnText_2">
           <property name="geometry">
            <rect>
-            <x>70</x>
-            <y>20</y>
-            <width>111</width>
-            <height>31</height>
+            <x>65</x>
+            <y>15</y>
+            <width>131</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -343,7 +367,7 @@ QPushButton:pressed{
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_back">
+         <widget class="QPushButton" name="pushButton_passwords">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -363,27 +387,18 @@ QPushButton:pressed{
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton{
-	background-image: url(:/Key/Images/key.svg);
-	background-repeat: no-repeat;
-	background-position: left;
 	background-color: rgb(14, 102, 22);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(188, 212, 190);
 }
 
 QPushButton:hover{
-	background-image: url(:/Key/Images/key.svg);
-	background-repeat: no-repeat;
-	background-position: left;
 	background-color: rgb(39, 119, 46);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(188, 212, 190);
 }
 
 QPushButton:hover:pressed{
-	background-image: url(:/Key/Images/key.svg);
-	background-repeat: no-repeat;
-	background-position: left;
 	background-color: rgb(24, 152, 35);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(188, 212, 190);
@@ -392,7 +407,11 @@ QPushButton:hover:pressed{
 </string>
           </property>
           <property name="text">
-           <string>Senhas</string>
+           <string>     Senhas     </string>
+          </property>
+          <property name="icon">
+           <iconset resource="QTImages.qrc">
+            <normaloff>:/Key/Images/key.svg</normaloff>:/Key/Images/key.svg</iconset>
           </property>
           <property name="autoDefault">
            <bool>false</bool>
@@ -407,9 +426,9 @@ QPushButton:hover:pressed{
          <widget class="QLabel" name="criptografia_warnText_3">
           <property name="geometry">
            <rect>
-            <x>70</x>
-            <y>50</y>
-            <width>111</width>
+            <x>65</x>
+            <y>60</y>
+            <width>125</width>
             <height>20</height>
            </rect>
           </property>
@@ -434,7 +453,7 @@ QPushButton:hover:pressed{
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_back_2">
+         <widget class="QPushButton" name="pushButton_notes">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -454,25 +473,18 @@ QPushButton:hover:pressed{
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton{
-	background-position: left;
-	background-image: url(:/Bookmark/Images/bookmark.svg);
-	background-repeat: no-repeat;
 	background-color: rgb(14, 102, 22);
 	color: rgb(255, 255, 255);
+	border: 1px solid rgb(188, 212, 190);
 }
 
 QPushButton:hover{
-	background-image: url(:/Bookmark/Images/bookmark.svg);
-	background-repeat: no-repeat;
-	background-position: left;
 	background-color: rgb(39, 119, 46);
 	color: rgb(255, 255, 255);
+	border: 1px solid rgb(188, 212, 190);
 }
 
 QPushButton:hover:pressed{
-	background-image: url(:/Bookmark/Images/bookmark.svg);
-	background-repeat: no-repeat;
-	background-position: left;
 	background-color: rgb(24, 152, 35);
 	color: rgb(255, 255, 255);
 }
@@ -480,7 +492,11 @@ QPushButton:hover:pressed{
 </string>
           </property>
           <property name="text">
-           <string>Notas</string>
+           <string>       Notas      </string>
+          </property>
+          <property name="icon">
+           <iconset resource="QTImages.qrc">
+            <normaloff>:/Bookmark/Images/bookmark.svg</normaloff>:/Bookmark/Images/bookmark.svg</iconset>
           </property>
           <property name="default">
            <bool>false</bool>
@@ -489,7 +505,7 @@ QPushButton:hover:pressed{
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_back_3">
+         <widget class="QPushButton" name="pushButton_wifiPass">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -509,25 +525,18 @@ QPushButton:hover:pressed{
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton{
-	background-image: url(:/WifiPass/Images/wifiPass.png);
-	background-repeat: no-repeat;
-	background-position: left;
 	background-color: rgb(14, 102, 22);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(188, 212, 190);
 }
 
 QPushButton:hover{
-	background-image: url(:/WifiPass/Images/wifiPass.png);
-	background-repeat: no-repeat;
 	background-color: rgb(39, 119, 46);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(188, 212, 190);
 }
 
 QPushButton:hover:pressed{
-	background-image: url(:/WifiPass/Images/wifiPass.png);
-	background-repeat: no-repeat;
 	background-color: rgb(24, 152, 35);
 	color: rgb(255, 255, 255);
 	border: 1px solid rgb(188, 212, 190);
@@ -536,7 +545,11 @@ QPushButton:hover:pressed{
 </string>
           </property>
           <property name="text">
-           <string>Senhas wi-fi</string>
+           <string> Senhas wi-fi </string>
+          </property>
+          <property name="icon">
+           <iconset resource="QTImages.qrc">
+            <normaloff>:/WifiPass/Images/wifiPass.png</normaloff>:/WifiPass/Images/wifiPass.png</iconset>
           </property>
           <property name="default">
            <bool>false</bool>
@@ -545,16 +558,16 @@ QPushButton:hover:pressed{
            <bool>true</bool>
           </property>
          </widget>
-         <zorder>pushButton_back_2</zorder>
+         <zorder>pushButton_notes</zorder>
          <zorder>avatar</zorder>
          <zorder>criptografia_warnText_2</zorder>
-         <zorder>pushButton_back</zorder>
+         <zorder>pushButton_passwords</zorder>
          <zorder>criptografia_warnText_3</zorder>
-         <zorder>pushButton_back_3</zorder>
+         <zorder>pushButton_wifiPass</zorder>
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="appGalery">
+        <widget class="QFrame" name="Galery">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(191, 203, 192);</string>
          </property>
@@ -581,7 +594,7 @@ QPushButton:hover:pressed{
            <number>0</number>
           </property>
           <item>
-           <widget class="QFrame" name="frame">
+           <widget class="QFrame" name="frame_6">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -589,39 +602,89 @@ QPushButton:hover:pressed{
              </size>
             </property>
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QGridLayout" name="gridLayout_2">
-             <item row="0" column="0">
-              <widget class="QLineEdit" name="lineEdit">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
+            <property name="lineWidth">
+             <number>0</number>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_3">
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
                </property>
-               <property name="maximumSize">
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <property name="lineWidth">
+                <number>0</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_4">
+               <property name="minimumSize">
                 <size>
-                 <width>170</width>
-                 <height>16777215</height>
+                 <width>257</width>
+                 <height>38</height>
                 </size>
                </property>
-               <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
                </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit{
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <property name="lineWidth">
+                <number>0</number>
+               </property>
+               <widget class="QLineEdit" name="lineEdit">
+                <property name="geometry">
+                 <rect>
+                  <x>10</x>
+                  <y>12</y>
+                  <width>200</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit{
 	border-radius: 5px ; 
 	padding: 15px;
 	background-color: rgb(254, 254, 254); 
-	background-image:  url(:/Search/Images/search.svg);
-	background-repeat: no-repeat;
-	background-position: right;
- 	 width: 1px;
- 	 height: 1px;
 }
 
 QLineEdit:hover{
@@ -629,15 +692,62 @@ QLineEdit:hover{
 
 QLineEdit:focus{
 }</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="placeholderText">
+                 <string>Encontre sua senha salva</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton">
+                <property name="geometry">
+                 <rect>
+                  <x>220</x>
+                  <y>5</y>
+                  <width>30</width>
+                  <height>30</height>
+                 </rect>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+	border-image: url(:/Search/Images/search.svg);
+	background-repeat: no-repeat;
+	border-radius: 5px;
+}
+
+QPushButton:hover{
+	background-color: rgb(218, 231, 219);
+	border-radius: 5px;
+}
+
+QPushButton:hover:pressed{
+	background-color: rgb(218, 231, 230);
+	border-radius: 5px;
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_5">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
                </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-               </property>
-               <property name="placeholderText">
-                <string>Encontre sua senha salva</string>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
                </property>
               </widget>
              </item>
@@ -645,55 +755,382 @@ QLineEdit:focus{
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="frame_2">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="styleSheet">
+             <string notr="true">/* VERTICAL SCROLLBAR */
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 68);
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(80, 80, 122);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+
+
+/* HORIZONTAL SCROLLBAR - HOMEWORK */
+QScrollBar:horizontal {
+   
+}
+QScrollBar::handle:horizontal {
+    
+}
+QScrollBar::add-line:horizontal {
+    
+}
+QScrollBar::sub-line:horizontal {
+    
+}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+{
+
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+
+}
+</string>
             </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
+            <property name="widgetResizable">
+             <bool>true</bool>
             </property>
-            <widget class="QPushButton" name="pushButton_back_4">
+            <widget class="QWidget" name="scrollAreaWidgetContents">
              <property name="geometry">
               <rect>
-               <x>80</x>
-               <y>50</y>
-               <width>172</width>
-               <height>111</height>
+               <x>0</x>
+               <y>0</y>
+               <width>774</width>
+               <height>623</height>
               </rect>
              </property>
-             <property name="font">
-              <font>
-               <family>Segoe UI</family>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <italic>false</italic>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">/* VERTICAL SCROLLBAR */
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 68);
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(80, 80, 122);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+
+
+/* HORIZONTAL SCROLLBAR - HOMEWORK */
+QScrollBar:horizontal {
+   
+}
+QScrollBar::handle:horizontal {
+    
+}
+QScrollBar::add-line:horizontal {
+    
+}
+QScrollBar::sub-line:horizontal {
+    
+}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+{
+
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+
+}
+</string>
              </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="shortcut">
-              <string/>
-             </property>
-             <property name="autoRepeat">
-              <bool>false</bool>
-             </property>
-             <property name="autoDefault">
-              <bool>false</bool>
-             </property>
-             <property name="default">
-              <bool>false</bool>
-             </property>
-             <property name="flat">
-              <bool>false</bool>
-             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QFrame" name="frame_12">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QFrame" name="frame_9">
+                   <property name="minimumSize">
+                    <size>
+                     <width>238</width>
+                     <height>272</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>238</width>
+                     <height>272</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <widget class="QPushButton" name="pushButton_addNewPSWRD">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="geometry">
+                     <rect>
+                      <x>21</x>
+                      <y>16</y>
+                      <width>195</width>
+                      <height>240</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>195</width>
+                      <height>240</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>195</width>
+                      <height>240</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Inter</family>
+                      <pointsize>13</pointsize>
+                      <weight>9</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::NoContextMenu</enum>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+	background-color: rgb(254, 254, 254);
+	font: 75 13pt &quot;Inter&quot;;
+
+	border-radius: 20px;
+}
+
+QPushButton:hover{
+	background-color: rgb(235, 235, 235);
+}
+
+QPushButton:hover:pressed{
+	background-color: rgb(255, 255, 255);
+}
+
+</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="QTImages.qrc">
+                      <normaloff>:/AddPSWRD/Images/add_circled.svg</normaloff>:/AddPSWRD/Images/add_circled.svg</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>80</width>
+                      <height>80</height>
+                     </size>
+                    </property>
+                    <property name="checkable">
+                     <bool>false</bool>
+                    </property>
+                    <property name="autoRepeat">
+                     <bool>false</bool>
+                    </property>
+                    <property name="autoExclusive">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="label_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>39</x>
+                      <y>180</y>
+                      <width>160</width>
+                      <height>31</height>
+                     </rect>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>MS Shell Dlg 2</family>
+                      <pointsize>13</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                      <underline>false</underline>
+                      <strikeout>false</strikeout>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgba(0,0,0,0%)</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Adicionar senha&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_addNewPSWRD">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_addNewPSWRD2">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_6"/>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
@@ -701,6 +1138,8 @@ QLineEdit:focus{
         </widget>
        </item>
       </layout>
+      <zorder>Galery</zorder>
+      <zorder>sidebar</zorder>
      </widget>
     </item>
    </layout>

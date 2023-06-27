@@ -2,6 +2,9 @@
   <qresource prefix="Logo">
     <file>Images/paypal.svg</file>
   </qresource>
+  <qresource prefix="AddPSWRD">
+    <file>Images/add_circled.svg</file>
+  </qresource>
   <qresource prefix="Search">
     <file>Images/search.svg</file>
   </qresource>
