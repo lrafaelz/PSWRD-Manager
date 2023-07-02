@@ -1,8 +1,10 @@
 from user import User
-from requirement import Requirement
-from temporary_password import TemporaryPassword
 from login import Login
 import checkfields
+
+import generator.temporary_password as TemporaryPassword
+import generator.requirement as Requirement
+
 
 #PROBLEMAS AO IMPORTAR ARQUIVO DE OUTRA PASTA
 #DELETAR DEPOIS OS ARQUIVOS DUPLICADOS REQUIREMENT E TEMPORARY_PASSWORD

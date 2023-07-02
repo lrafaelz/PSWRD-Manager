@@ -2,8 +2,8 @@ import os
 import smtplib
 from email.message import EmailMessage
 
-#https://www.youtube.com/watch?v=pJP6ruTiKX4&ab_channel=DevAprender 
-
+#https://www.youtube.com/watch?v=LUyM7Nm1i9k
+#https://myaccount.google.com/apppasswords GERAR SENHA PARA USAR AQUI, NAO PODE USAR A SENHA DO GMAIL
 
 with open('password.txt') as f:
     senha = f.readlines()
