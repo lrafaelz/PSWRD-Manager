@@ -257,6 +257,6 @@ if __name__ == "__main__":
 
     # functions
     login.openLoginUI()
-    # newDataframeUi.hide()
+    # newDataframeUi.hide67()
     app.exec_()
  
