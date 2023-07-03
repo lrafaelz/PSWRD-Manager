@@ -28,7 +28,7 @@ class TemporaryPassword():
     return password
 
 
-  def setValue(self, Requirement):
+  def getValue(self, Requirement):
       pattern = self.getPattern(Requirement)
       characters = self.getCharacters(Requirement)
       password = ""

@@ -2,8 +2,8 @@ from user import User
 from login import Login
 import checkfields
 
-import generator.temporary_password as TemporaryPassword
-import generator.requirement as Requirement
+#import generator.temporary_password as TemporaryPassword
+#import generator.requirement as Requirement
 
 
 #PROBLEMAS AO IMPORTAR ARQUIVO DE OUTRA PASTA
@@ -12,7 +12,7 @@ import generator.requirement as Requirement
 ############## REGISTER ################
 
 inputEmail = 'example@gmail.com'
-inputKey = TemporaryPassword().setValue(Requirement(3,2,1,3))
+inputKey = '0123456789abcdef'
 #TESTE ABAIXO (VAI DAR ERRO AO USER.CREATEUSER())
 inputFolderName = "teste"
 inputFolderPath = "desktop/pswrd/"
@@ -36,17 +36,17 @@ login = Login()
 if(checkfields.SyntaxEmail(inputEmail)):        
     if(checkfields.SyntaxKey(inputKey)):        
         login.updateData(inputEmail, inputKey)  
-        #if(login.authorizeLogin()):  
-         
-
+        if(login.authorizeLogin(inputEmail, inputKey)):
+            print('USUARIO LOGADO')  
 
 ############## AFTER LOGIN ##############        
         
 userLogged = User() 
-userLogged.setEmail(login.getInputEmail)
-userLogged.setKey(login.getInputKey)
-#UserLogged.setFolderName()
-#UserLogged.setFolderPath()
+userLogged.setEmail(login.getInputEmail())
+userLogged.setKey(login.getInputKey())
+userLogged.setFolderName(login.getInputName())
+userLogged.setFolderPath(login.getInputPath())
+userLogged.setFullPath(login.getFullPath())
 #del login
 
 ############## DISCONNECT ###############
