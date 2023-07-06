@@ -4,39 +4,47 @@ from encryption import generate_key, encrypt_password
 from validation import is_valid
 import files
 
-def encrypt():
-    # Check the number of arguments provided
-    num_args = len(sys.argv)
+def encrypt(name, login, password, key=None):
+    # Encrypt function takes name, login, password, and optional key as parameters
 
-    if num_args == 2:
-        # Only password argument provided
-        password = sys.argv[1]
-        key = generate_key()
-        print("Generated Key:", key.hex())
-    elif num_args == 3:
-        # Both password and key arguments provided
-        password = sys.argv[1]
-        key = sys.argv[2].encode()
-    else:
-        # Invalid number of arguments
-        print("Invalid number of arguments. Please provide a password and an optional key.")
-        return
+    if key is None:
+        # If key is not provided, raise an error
+        raise ValueError("No key provided.")
 
-    # Check if the provided key is valid
     if not is_valid(key):
-        print("Invalid key. Generating a random key instead.")
-        key = generate_key()
-        print("Generated Key:", key.hex())
+        # Check if the provided key is valid
+        raise ValueError("Invalid key. The key size should be 16 bytes long.")
 
-    # Encrypt the password and obtain the IV
-    iv, encrypted_password = encrypt_password(password, key)
+    # Encrypt the login and password separately using the key
+    encrypted_login = encrypt_password(login, key)
+    encrypted_password = encrypt_password(password, key)
 
-    # Write the IV and the encrypted password to a file
-    files.write("pswrd.txt", iv + encrypted_password)
+    # Concatenate name, login, and password separated by commas
+    encrypted_data = f"{name},{encrypted_login.hex()},{encrypted_password.hex()}\n"
 
-# Check if the script is being executed as the main entry point
+    # Append the encrypted data to the file
+    files.append("pswrd.txt", encrypted_data)
+
 if __name__ == "__main__":
-    # If the condition is true, execute the code inside this block
+    # If the script is executed as the main entry point
 
-    # Call the main function to start the program
-    encrypt()
+    # Prompt the user to enter the name
+    name = input("Enter the name: ")
+
+    # Prompt the user to enter the login
+    login = input("Enter the login: ")
+
+    # Prompt the user to enter the password
+    password = input("Enter the password: ")
+
+    # Prompt the user to enter the key (optional)
+    key = input("Enter the key (optional): ").encode()
+
+    try:
+        # Call the encrypt function with the provided name, login, password, and key
+        encrypt(name, login, password, key)
+
+    except ValueError as e:
+        # Print the error message and exit
+        print(str(e))
+        sys.exit(1)

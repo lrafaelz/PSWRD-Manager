@@ -1,10 +1,9 @@
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.backends import default_backend
 import padding
 
-def decrypt_password(encrypted_password, key, iv):
-    # Create a cipher object using AES algorithm, CBC mode, and the IV
-    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
+def decrypt_password(encrypted_password, key, nonce, tag):
+    # Create a cipher object using AES algorithm and GCM mode
+    cipher = Cipher(algorithms.AES(key), modes.GCM(nonce, tag))
 
     # Create a decryptor object using the cipher
     decryptor = cipher.decryptor()

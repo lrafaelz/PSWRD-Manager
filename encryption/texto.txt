@@ -1,2 +1,0 @@
-Facebook,login@gmail.com,Senha123@
-Notion,teste@gmail.com,Teste123@
