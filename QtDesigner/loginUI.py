@@ -69,7 +69,6 @@ class LoginWindow(QtWidgets.QMainWindow):
         self.pushButton_newDf.clicked.connect(self.open_registerMenu)
         # if newDataframeUi.isVisible():
         #     newDataframeUi.hide()
-
           
 
     #
@@ -120,12 +119,12 @@ class LoginWindow(QtWidgets.QMainWindow):
                 self.open_mainMenu()
 
     def open_mainMenu(self):
-        mainMenu = MainMenuWindow()
-        mainMenu.show()
+        self.mainMenu = MainMenuWindow()
+        self.mainMenu.show()
         self.hide()
 
     def open_registerMenu(self):
         from QtDesigner.registerUI import RegisterWindow
         register = RegisterWindow()
-        register.show()
         self.hide()
+        register.show()

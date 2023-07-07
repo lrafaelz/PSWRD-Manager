@@ -1,0 +1,66 @@
+style_inputTextOK = ("QLineEdit{\n"
+"    border: 2px solid rgb(14, 78, 20);\n"
+"    border-radius: 5px ; \n"
+"    padding: 15px;\n"
+"    background-color: rgb(254, 254, 254);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    border:2px solid  rgb(254, 254, 254); \n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    color: rgb(000, 000, 000);\n"
+"    border:2px solid  rgb(14, 78, 20); \n"
+"}")
+    
+style_inputTextError = ("QLineEdit{\n"
+"    border: 2px solid rgb(255, 61, 61);\n"
+"    border-radius: 5px ; \n"
+"    padding: 15px;\n"
+"    background-color: rgb(254, 254, 254);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    border:2px solid  rgb(254, 254, 254); \n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    color: rgb(000, 000, 000);\n"
+"    border:2px solid  rgb(14, 78, 20); \n"
+"}")
+
+
+style_modalInputTextError = ("QLineEdit{\n"
+"    border: 1px solid rgb(255, 61, 61);\n"
+"    border-radius: 5px ; \n"
+"    background-color: rgb(254, 254, 254);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    border:1px solid  rgb(254, 254, 254); \n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    color: rgb(000, 000, 000);\n"
+"    border:1px solid  rgb(14, 78, 20); \n"
+"}")
+
+style_modalInputTextOK = ("QLineEdit{\n"
+"    border: 1px solid rgb(14, 78, 20);\n"
+"    border-radius: 5px ; \n"
+"    background-color: rgb(254, 254, 254);\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    border:1px solid  rgb(254, 254, 254); \n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    color: rgb(000, 000, 000);\n"
+"    border:1px solid  rgb(14, 78, 20); \n"
+"}")
+
+    
+stylePopupError = ("background-color: rgb(255, 61, 61); border-radius: 8px; position: absolute;")
+stylePopupOK = ("background-color: rgb(24, 178, 38); border-radius: 8px; position: absolute;")

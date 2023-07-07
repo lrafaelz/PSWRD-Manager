@@ -1,6 +1,7 @@
 import os
 from PyQt5 import uic , QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QVBoxLayout, QGridLayout, QPushButton, QCheckBox
+from QtDesigner.mainMenuUI import MainMenuWindow
 
 
 style_inputTextOK = ("QLineEdit{\n"
@@ -46,6 +47,7 @@ class RegisterWindow(QtWidgets.QMainWindow):
                 #
                 # FUNCTIONS
                 #
+                print("open_registerMenu")
 
                 # pushbutton close popup error
                 self.pushButton_closeError.clicked.connect(self.frame_error.hide)
@@ -102,12 +104,14 @@ class RegisterWindow(QtWidgets.QMainWindow):
                         #
 
 
-        def openLoginMenu():
-                print("openLoginMenu")
+        def openLoginMenu(self):
+                from QtDesigner.loginUI import LoginWindow
+                self.loginMenu = LoginWindow()
+                self.loginMenu.show()
+                self.hide()
 
 
         def openNewDfUI(self):
-                from QtDesigner.mainMenuUI import MainMenuWindow
                 print("openNewDf")
                 mainMenu = MainMenuWindow()
                 mainMenu.show()

@@ -1,32 +1,32 @@
 <RCC>
   <qresource prefix="Logo">
-    <file>Images/paypal.svg</file>
+    <file>../Images/paypal.svg</file>
   </qresource>
   <qresource prefix="User">
-    <file>Images/User.png</file>
+    <file>../Images/User.png</file>
   </qresource>
   <qresource prefix="AddPSWRD">
-    <file>Images/add_circled.svg</file>
-  </qresource>
-  <qresource prefix="Locker">
-    <file>Images/Locker.png</file>
+    <file>../Images/add_circled.svg</file>
   </qresource>
   <qresource prefix="Search">
-    <file>Images/search.svg</file>
+    <file>../Images/search.svg</file>
+  </qresource>
+  <qresource prefix="Locker">
+    <file>../Images/Locker.png</file>
   </qresource>
   <qresource prefix="Bookmark">
-    <file>Images/bookmark.svg</file>
+    <file>../Images/bookmark.svg</file>
   </qresource>
   <qresource prefix="WifiPass">
-    <file>Images/wifiPass.png</file>
+    <file>../Images/wifiPass.png</file>
   </qresource>
   <qresource prefix="Key">
-    <file>Images/key.svg</file>
+    <file>../Images/key.svg</file>
   </qresource>
   <qresource prefix="Avatar">
-    <file>Images/profile circled.svg</file>
+    <file>../Images/profile circled.svg</file>
   </qresource>
   <qresource prefix="Close">
-    <file>Images/X.png</file>
+    <file>../Images/X.png</file>
   </qresource>
 </RCC>

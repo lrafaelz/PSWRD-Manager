@@ -21,12 +21,11 @@ class MainMenuWindow(QtWidgets.QMainWindow):
                                 valores = linha.strip().split(',')
                                 matriz_valores.append(valores)
                 print(matriz_valores)
-                from cardSenha import CardSenha
-                for(i) in range(len(matriz_valores)):
-                        PSWRDCards = []
-                        if(i<5):
-                                PSWRDCards.append(matriz_valores,i)
-                                
+                # from cardSenha import CardSenha       
+                # for(i) in range(len(matriz_valores)):
+                #         PSWRDCards = []
+                #         if(i<5):
+                #                 PSWRDCards.append(CardSenha(matriz_valores,i))
                 self.pushButton_closeError.clicked.connect(self.frame_error.hide)
                 # hide frame error
                 self.frame_error.hide()
