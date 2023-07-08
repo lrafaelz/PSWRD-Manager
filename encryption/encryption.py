@@ -3,11 +3,11 @@ import os
 from cryptography.hazmat.primitives import padding
 
 def generate_key():
-    # Generate a random 16-byte key using a secure random number generator
+    # Generate a random 16-byte key
     key = os.urandom(16)
     return key
 
-def encrypt_password(password, key):
+def encrypt(password, key):
     # Generate a random nonce
     nonce = os.urandom(12)
 

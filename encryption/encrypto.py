@@ -1,48 +1,47 @@
 import sys
 import os
-from encryption import generate_key, encrypt_password
+from encryption import generate_key, encrypt
 from validation import is_valid
 import files
 
-def encrypt(name, login, password, key=None):
-    # Encrypt function takes name, login, password, and optional key as parameters
-
+def encrypto(matrix, key=None):
     if key is None:
-        # If key is not provided, raise an error
         raise ValueError("No key provided.")
 
     if not is_valid(key):
-        # Check if the provided key is valid
         raise ValueError("Invalid key. The key size should be 16 bytes long.")
 
-    # Encrypt the login and password separately using the key
-    encrypted_login = encrypt_password(login, key)
-    encrypted_password = encrypt_password(password, key)
+    # Encrypt the whole matrix using the key
+    encrypted_matrix = []
+    for row in matrix:
+        encrypted_row = []
+        for element in row:
+            encrypted_element = encrypt(element, key)
+            encrypted_row.append(encrypted_element.hex())
+        encrypted_matrix.append(encrypted_row)
 
-    # Concatenate name, login, and password separated by commas
-    encrypted_data = f"{name},{encrypted_login.hex()},{encrypted_password.hex()}\n"
-
-    # Append the encrypted data to the file
-    files.append("pswrd.txt", encrypted_data)
+    # Save the new file, overwriting the old one
+    files.save("pswrd.txt", encrypted_matrix)
 
 if __name__ == "__main__":
-    # If the script is executed as the main entry point
+    rows = int(input("Enter the number of rows in the matrix: "))
+    columns = int(input("Enter the number of columns in the matrix: "))
 
-    # Prompt the user to enter the name
-    name = input("Enter the name: ")
-
-    # Prompt the user to enter the login
-    login = input("Enter the login: ")
-
-    # Prompt the user to enter the password
-    password = input("Enter the password: ")
+    matrix = []
+    for i in range(rows):
+        row = []
+        for j in range(columns):
+            # Prompt the user to enter the matrix elements
+            element = input(f"Enter the element at position ({i}, {j}): ")
+            row.append(element)
+        matrix.append(row)
 
     # Prompt the user to enter the key (optional)
     key = input("Enter the key (optional): ").encode()
 
     try:
-        # Call the encrypt function with the provided name, login, password, and key
-        encrypt(name, login, password, key)
+        # Call the encrypt_matrix function with the provided matrix and key
+        encrypted_matrix = encrypto(matrix, key)
 
     except ValueError as e:
         # Print the error message and exit
