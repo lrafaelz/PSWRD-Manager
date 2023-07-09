@@ -9,7 +9,7 @@ with open('password.txt') as f:
     senha = f.readlines()
     f.close
 
-EMAIL_ADDRESS_SENDER = 'pswrdmanager@gmail.com'
+EMAIL_ADDRESS_SENDER = 'pswrdmanager.unipampa@gmail.com'
 EMAIL_PASSWORD_SENDER = senha[0]
 
 SUBJECT_EMAIL = 'Teste de envio de email'
