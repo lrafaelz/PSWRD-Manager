@@ -1,22 +1,30 @@
 import os
 import smtplib
 from email.message import EmailMessage
-
-#https://www.youtube.com/watch?v=LUyM7Nm1i9k
-#https://myaccount.google.com/apppasswords GERAR SENHA PARA USAR AQUI, NAO PODE USAR A SENHA DO GMAIL
-
-with open('password.txt') as f:
-    senha = f.readlines()
-    f.close
-
-EMAIL_ADDRESS_SENDER = 'pswrdmanager.unipampa@gmail.com'
-EMAIL_PASSWORD_SENDER = senha[0]
-
-SUBJECT_EMAIL = 'Teste de envio de email'
-BODY_EMAIL = 'Este email é do PSWRD Manager.'
+import multiprocessing as mp
 
 class Email():
-    def sendEmail(email_address_recipient):
+    # processes = []
+    # def sendEmail(self, email_address_recipient):
+    #     p = mp.Process(target=self.sendEmail2, args=(str(email_address_recipient)))
+    #     p.start()
+    #     self.processes.append(p)
+    #     for p in self.processes:
+    #         p.join()
+
+
+    def sendEmail(self, email_address_recipient):
+        file_path = os.path.abspath("authentication")
+        with open(file_path + '/password.txt') as f:
+            senha = f.readlines()
+            f.close
+
+        EMAIL_ADDRESS_SENDER = 'pswrdmanager.unipampa@gmail.com'
+        EMAIL_PASSWORD_SENDER = senha[0]
+
+        SUBJECT_EMAIL = 'Teste de envio de email'
+        BODY_EMAIL = 'Este email é do PSWRD Manager.'
+
         #create_email
         msg = EmailMessage()
         msg['Subject'] = SUBJECT_EMAIL

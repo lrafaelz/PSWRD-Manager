@@ -139,6 +139,18 @@ QPushButton:hover:pressed{
       </item>
       <item>
        <widget class="QLabel" name="PSWRDName">
+        <property name="minimumSize">
+         <size>
+          <width>194</width>
+          <height>27</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>194</width>
+          <height>27</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Inter</family>

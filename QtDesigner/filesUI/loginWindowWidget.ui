@@ -500,44 +500,6 @@ QLineEdit:focus{
           <string>Informe sua chave de criptografia</string>
          </property>
         </widget>
-        <widget class="QCheckBox" name="checkbox_saveUser">
-         <property name="geometry">
-          <rect>
-           <x>95</x>
-           <y>340</y>
-           <width>211</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Inter</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QCheckBox{
-	color: rgb(255, 255, 255);
-}
-
-QCheckBox:indicator{
-	border:3px solid  rgb(7, 51, 10);
-	width: 15px;
-	height: 15px;
-	border-radius: 10px;
-	background-color: rgb(13, 98, 19) ;
-}
-
-QCheckBox:indicator:checked{
-	border:3px solid  rgb(7, 51, 10);
-	background-color: rgb(7, 51, 10) ;
-}
-</string>
-         </property>
-         <property name="text">
-          <string>Manter descriptografado</string>
-         </property>
-        </widget>
         <widget class="QPushButton" name="pushButton_newDf">
          <property name="geometry">
           <rect>

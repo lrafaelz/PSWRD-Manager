@@ -2,6 +2,9 @@
   <qresource prefix="Logo">
     <file>../Images/paypal.svg</file>
   </qresource>
+  <qresource prefix="LockKey">
+    <file>LockKey.svg</file>
+  </qresource>
   <qresource prefix="User">
     <file>../Images/User.png</file>
   </qresource>
@@ -12,6 +15,7 @@
     <file>../Images/search.svg</file>
   </qresource>
   <qresource prefix="Locker">
+    <file>../Images/LockKey.svg</file>
     <file>../Images/Locker.png</file>
   </qresource>
   <qresource prefix="Bookmark">

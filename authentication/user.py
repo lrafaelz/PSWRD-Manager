@@ -4,11 +4,17 @@ class User():
 
     def __init__(self):
         self.email = ''
-        self.key = ''
         self.folderName = ''
         self.folderPath = ''
         self.fullPath = ''
-        self.isLogged = True
+        self.isLogged = False
+
+    def logout(self):
+        self.email = ''
+        self.folderName = ''
+        self.folderPath = ''
+        self.fullPath = ''
+        self.isLogged = False
 
     def setFullPath(self, fullPath):
         self.fullPath = fullPath
@@ -17,13 +23,14 @@ class User():
         return self.fullPath
 
     def createUser(self):
-        with open("users.txt", "a", encoding="utf-8") as file:
+        file_path = os.path.abspath("authentication")
+        with open(file_path + "/users.txt", "a", encoding="utf-8") as file:
             file.write("-\n")
             file.write(self.email + '\n')
             file.write(self.folderName + '\n')
             file.write(self.folderPath + '\n')
-            file.write(self.key + '\n')
-            self.fullPath = self.getFullPath()
+            self.isLogged = True
+            self.fullPath = self.folderPath + "/" + self.folderName
             file.close()
 
     def setIsLogged(self, isLogged):
@@ -40,9 +47,6 @@ class User():
     
     def setFolderPath(self, folderPath):
         self.folderPath = folderPath
-    
-    def setKey(self, key):
-        self.key = key
 
     def getEmail(self):
         return self.email
@@ -52,6 +56,3 @@ class User():
     
     def getFolderPath(self):
         return self.folderPath
-    
-    def getKey(self):
-        return self.key

@@ -277,7 +277,7 @@ QLineEdit:focus{
      <widget class="QLabel" name="TextoName_3">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>410</x>
         <y>40</y>
         <width>91</width>
         <height>41</height>
@@ -299,9 +299,9 @@ QLineEdit:focus{
      <widget class="QLineEdit" name="Input_appPSWRD">
       <property name="geometry">
        <rect>
-        <x>530</x>
+        <x>500</x>
         <y>40</y>
-        <width>191</width>
+        <width>241</width>
         <height>41</height>
        </rect>
       </property>
@@ -365,7 +365,7 @@ QLineEdit:focus{
      <widget class="QCheckBox" name="checkBox_generate">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>410</x>
         <y>100</y>
         <width>131</width>
         <height>20</height>
@@ -390,7 +390,7 @@ QLineEdit:focus{
      <widget class="QCheckBox" name="checkBox_symbol">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>420</x>
         <y>130</y>
         <width>181</width>
         <height>20</height>
@@ -400,26 +400,10 @@ QLineEdit:focus{
        <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
       </property>
       <property name="text">
-       <string>Simbolos (!, $, #, %)</string>
+       <string/>
       </property>
      </widget>
-     <widget class="QCheckBox" name="checkBox_uppercase">
-      <property name="geometry">
-       <rect>
-        <x>430</x>
-        <y>160</y>
-        <width>141</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Maiúsculos</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="spinBox_caracter">
+     <widget class="QSpinBox" name="spinBox_lowercase">
       <property name="geometry">
        <rect>
         <x>620</x>
@@ -436,9 +420,9 @@ QLineEdit:focus{
       <property name="geometry">
        <rect>
         <x>670</x>
-        <y>90</y>
+        <y>100</y>
         <width>91</width>
-        <height>41</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="font">
@@ -454,23 +438,7 @@ QLineEdit:focus{
        <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt; font-weight:400;&quot;&gt;Caracteres&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_number">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>130</y>
-        <width>121</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Números</string>
+       <string>Minúsculas</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_generate">
@@ -512,6 +480,93 @@ QPushButton:disabled {
       </property>
       <property name="text">
        <string>Gerar</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_symbols">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>130</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_uppercase">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>160</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>130</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Simbolos (!, $, #, %)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>160</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Maiúsculas</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_numbers">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>130</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>130</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">	font: 200 9pt &quot;Inter&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Números</string>
       </property>
      </widget>
     </widget>

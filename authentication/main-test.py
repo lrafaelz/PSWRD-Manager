@@ -43,7 +43,6 @@ if(checkfields.SyntaxEmail(inputEmail)):
         
 userLogged = User() 
 userLogged.setEmail(login.getInputEmail())
-userLogged.setKey(login.getInputKey())
 userLogged.setFolderName(login.getInputName())
 userLogged.setFolderPath(login.getInputPath())
 userLogged.setFullPath(login.getFullPath())
