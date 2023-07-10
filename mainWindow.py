@@ -1,17 +1,15 @@
 import os
 import QtDesigner.QTImages_rc
 from PyQt5 import uic
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QGridLayout, QDialog, QFileDialog
+from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QGridLayout, QDialog, QFileDialog, QFrame
 from PyQt5.QtGui import QClipboard
 import styles as st
 from authentication.checkfields import Check
 from authentication.login import Login
 from authentication.user import User
-import encryption.testCards as tc
 import encryption.encryption as  enc
-
-
+import encryption.testCards as tc
 # Carregar o arquivo mainWindow.ui
 file_path = os.path.abspath("QtDesigner/filesUI/mainWindow.ui")
 Ui_MainWindow, QtBaseClass = uic.loadUiType(file_path)
@@ -30,7 +28,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     addPSWRDModal = None
     editPSWDModal = None
 
-    matriz_senhas = []
+    
+    key = None
+    
+    grid_layout = None
+
+    matriz_senhas = None
 
 ##############################################################################################################
 
@@ -139,7 +142,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         
     def generateKey(self):
-        key = enc.generate_key()
+        self.key = enc.generate_key()
+        key = self.key.hex()
         self.registerWidget.inputText_encryptionKey.setText(key)
 
     def registerButtonSetup(self):
@@ -157,9 +161,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.registerWidget.pushButton_back.clicked.connect(self.openLoginUI)
 
     def copyKey(self):
-        key = self.registerWidget.inputText_encryptionKey.text()
+        self.key = self.registerWidget.inputText_encryptionKey.text()
         clipboard = QApplication.clipboard()
-        clipboard.setText(key)
+        clipboard.setText(self.key)
 
 
     def findPath(self):
@@ -242,7 +246,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.fillUserInfo()
 
-        self.refreashAppCards()
+        self.refreshAppCards()
 
         self.mainMenuButtonSetup()
 
@@ -251,22 +255,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.mainMenuWidget.label_email.setText(self.user.getEmail())
         
 
-    def refreashAppCards(self):
-        # Criar o layout de grid
-        grid_layout = QGridLayout()
-
+    def refreshAppCards(self):
+        if self.mainMenuWidget.widget_gridApps.layout() is not None:
+            for child in self.grid_layout.findChildren(QFrame):
+                child.setParent(None)
+            self.mainMenuWidget.widget_gridApps.layout().removeItem(self.grid_layout)
+        self.grid_layout = QGridLayout()
+        print(self.matriz_senhas)
         # Definir o número máximo de frames por linha
-        max_frames_por_linha = 3
+        max_frames_por_linha = 3           
 
         # Lista de frames
         frames = []
         self.matriz_senhas = tc.getTestCards()
-        print(self.matriz_senhas)
 
         # Adicionar frames ao layout de grid
         from appCard import AppCard
-        for i in range(len(self.matriz_senhas)):
-            frame = AppCard(self.matriz_senhas, i)
+        for i in range(len(self.matriz_senhas)):    
+            frame = AppCard(self.matriz_senhas, i, self)
             frames.append(frame)
 
             # Calcular a posição do frame na grade
@@ -274,15 +280,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             coluna = (i+1) % max_frames_por_linha
 
             # Adicionar o frame ao layout de grid
-            grid_layout.addWidget(frame, linha, coluna)
+            self.grid_layout.addWidget(frame, linha, coluna)
 
-        # Configurar o frame_gridApps como o central widget da janela
-        # self.setCentralWidget(frame_gridApps)
-        self.mainMenuWidget.widget_gridApps.setLayout(grid_layout)
+        empty_frame = QFrame()
+        empty_frame.setFixedSize(238, 272)
+        if len(self.matriz_senhas) != 0:
+            self.grid_layout.addWidget(empty_frame, linha+1, 0)
+            self.grid_layout.addWidget(empty_frame, linha+1, 1)
+            self.grid_layout.addWidget(empty_frame, linha+1, 2)
+
+        self.mainMenuWidget.widget_gridApps.setLayout(self.grid_layout)
+
 
     def backToLoginUI(self):
         # import encryption.encrypto as enc
-        # enc.encrypto(self.matriz_senhas)
+        # enc.encrypt(self.key , self.matriz_senhas) EDITAR
         self.mainMenuWidget.close()
         self.loginWidget.show()
         self.loginWidget.inputText_Email.clear()
@@ -332,34 +344,31 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.addPSWRDModal.spinBox_lowercase.setEnabled(False)
         self.addPSWRDModal.pushButton_generate.setEnabled(False)
 
+        self.timer = QTimer()
+        self.timer.setSingleShot(True)
         self.addPSWRDModal.checkBox_generate.stateChanged.connect(self.generatePassword)
 
         self.addPSWRDModal.pushButton_save.clicked.connect(self.checkFieldsSavePSWRD)
 
+        self.addPSWRDModal.pushButton_generate.clicked.connect(self.writePassword)
 
     def generatePassword(self, estado):
-        if estado == Qt.Checked:
-            print("generate password")
-            self.addPSWRDModal.spinBox_symbols.setEnabled(True)
-            self.addPSWRDModal.spinBox_uppercase.setEnabled(True)  
-            self.addPSWRDModal.spinBox_numbers.setEnabled(True)
-            self.addPSWRDModal.spinBox_lowercase.setEnabled(True)
-            self.addPSWRDModal.pushButton_generate.setEnabled(True)
-
-            self.addPSWRDModal.pushButton_generate.clicked.connect(self.writePassword)
-        else:
-            self.AddPSWRDSetup()
+            if estado == Qt.Checked:
+                print("generate password")
+                self.addPSWRDModal.spinBox_symbols.setEnabled(True)
+                self.addPSWRDModal.spinBox_uppercase.setEnabled(True)  
+                self.addPSWRDModal.spinBox_numbers.setEnabled(True)
+                self.addPSWRDModal.spinBox_lowercase.setEnabled(True)
+                self.addPSWRDModal.pushButton_generate.setEnabled(True)
+                self.timer.start(500)
+            else:
+                self.AddPSWRDSetup()
 
     def writePassword(self):
-        import generator.requirement as rq
-        import generator.temporary_password as tp
-        # from generator.requirement import Requirement
-        # from generator.temporary_password import TemporaryPassword
-        requisitos = rq(self.addPSWRDModal.spinBox_uppercase.value(), self.addPSWRDModal.spinBox_lowercase.value(), 
-                                 self.addPSWRDModal.spinBox_numbers.value(), self.addPSWRDModal.spinBox_symbols.value())
-        self.addPSWRDModal.Input_appPSWRD.setText(tp(requisitos).getValue())
-        
-
+        from generator.requirement import Requirement
+        from generator.temporary_password import TemporaryPassword
+        self.addPSWRDModal.Input_appPSWRD.setText(TemporaryPassword().getValue(Requirement(self.addPSWRDModal.spinBox_uppercase.value(), self.addPSWRDModal.spinBox_symbols.value(),
+                                                       self.addPSWRDModal.spinBox_numbers.value(), self.addPSWRDModal.spinBox_symbols.value())))
         
     def checkFieldsSavePSWRD(self):
         teste = ''
@@ -387,18 +396,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if teste == 'OKOKOK':
               self.addPSWRDModal.close()
               self.addNewPSWRD()
-              self.refreashAppCards()
+              self.refreshAppCards()
         
         
     def addNewPSWRD(self):
-          pass
+        self.matriz_senhas.append([self.addPSWRDModal.Input_appName.text(), self.addPSWRDModal.Input_appUsername.text(), self.addPSWRDModal.Input_appPSWRD.text()])
+        # print(self.matriz_senhas)
+        self.refreshAppCards()
+
+    def addFromEdit(self, position, appName, appUser, appPass):
+        print(position, appName, appUser, appPass)
+        self.matriz_senhas[position] = [appName, appUser, appPass]
+        self.refreshAppCards()
+    
+    def removePSWRD(self, position):
+        if(len(self.matriz_senhas) != 0):
+            self.matriz_senhas.pop(position)
+            self.refreshAppCards()
+            self.mainMenuWidget.deleteLater()
+            self.open_mainMenuUI()
+
+    
 
 ############################################################################################################
-
-
-
-
-
 
 if __name__ == "__main__":
     app = QApplication([])

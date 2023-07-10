@@ -22,8 +22,8 @@ class Email():
         EMAIL_ADDRESS_SENDER = 'pswrdmanager.unipampa@gmail.com'
         EMAIL_PASSWORD_SENDER = senha[0]
 
-        SUBJECT_EMAIL = 'Teste de envio de email'
-        BODY_EMAIL = 'Este email é do PSWRD Manager.'
+        SUBJECT_EMAIL = 'Alerta de Segurança'
+        BODY_EMAIL = 'Foram detectadas 3 tentativas de acesso sem sucesso ao seu banco de senhas.\n\n\nCaso tenham sido realizadas por você, por favor, desconsidere este e-mail.\n\nEste é um e-mail automático. Não é necessário respondê-lo.'
 
         #create_email
         msg = EmailMessage()

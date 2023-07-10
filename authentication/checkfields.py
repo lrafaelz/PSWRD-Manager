@@ -21,8 +21,10 @@ class Check():
 
 
     def SyntaxFileName(inputFileName):
+        pattern = r'[\\/:*?"<>|]'
         if inputFileName != '':
-            return True
+            if not re.search(pattern, inputFileName):
+                return True
         return False
 
 

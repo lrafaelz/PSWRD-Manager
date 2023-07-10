@@ -1,4 +1,3 @@
-from requirement import Requirement
 import re
 import random
 import string

@@ -1,11 +1,4 @@
 class Requirement():
-
-#  def __init__(self):
-#    self.uppercase = 0
-#    self.lowercase = 0
-#    self.special = 0
-#    self.number = 0
-
   def __init__(self, uppercase:int, lowercase:int, number:int, special:int):
     self.uppercase = uppercase
     self.lowercase = lowercase

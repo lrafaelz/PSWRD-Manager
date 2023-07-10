@@ -90,7 +90,7 @@ class Login():
         if not self.inputEmail == inputEmail:
             self.inputEmail = inputEmail
         self.inputKey = inputKey
-
+    
 
     def findFolderPath(self, inputEmail, indexEmail, listPath):
         return listPath[indexEmail]
