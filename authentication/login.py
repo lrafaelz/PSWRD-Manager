@@ -2,7 +2,7 @@
 # import authentication.email as Email
 from authentication.email import Email
 import os
-MAX_ATTEMPT = 3
+MAX_ATTEMPT = 2
 
 class Login():
     
