@@ -1,9 +1,11 @@
 import sys
-from encryption import generate_key, encrypt
-from validation import is_valid
-import files
+from encryption.encryption import encrypt
+from encryption.validation import is_valid
+from encryption.files import save
 
 def encrypto(matrix, key=None):
+    print(matrix)
+    print(key)
     if key is None:
         raise ValueError("No key provided.")
 
@@ -15,12 +17,13 @@ def encrypto(matrix, key=None):
     for row in matrix:
         encrypted_row = []
         for element in row:
-            encrypted_element = encrypt(element, key)
+            encrypted_element = encrypt(element, key.encode())
             encrypted_row.append(encrypted_element.hex())
         encrypted_matrix.append(encrypted_row)
 
     # Save the new file, overwriting the old one
-    files.save("pswrd.txt", encrypted_matrix)
+    if encrypted_matrix is not None:
+        save("pswrd.txt", encrypted_matrix)
 
 if __name__ == "__main__":
     rows = int(input("Enter the number of rows in the matrix: "))

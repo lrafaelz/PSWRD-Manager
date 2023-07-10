@@ -1,12 +1,13 @@
 import binascii
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from decryption import decrypt
-from validation import is_valid
-import files
+from encryption.decryption import decrypt
+from encryption.validation import is_valid
+from encryption.files import read
 
 def decrypto(file_path, key):
     # Read the entries from the file
-    data = files.read(file_path)
+    file_path="pswrd.txt"
+    data = read(file_path)
 
     # Split the lines
     rows = data.splitlines()
@@ -29,7 +30,7 @@ def decrypto(file_path, key):
         for encrypted_row in encrypted_matrix:
             decrypted_row = []
             for element in encrypted_row:
-                decrypted_element = decrypt(element[12:-16], key, element[:12], element[-16:])
+                decrypted_element = decrypt(element[12:-16], key.encode(), element[:12], element[-16:])
                 decrypted_row.append(decrypted_element)
             decrypted_matrix.append(decrypted_row)
     except ValueError as e:
@@ -40,11 +41,12 @@ def decrypto(file_path, key):
     return decrypted_matrix
 
 
-# Call the decrypt function with the name and key
-file_path = "pswrd.txt"
-key = input("Enter the key (in hexadecimal format): ").encode()
-decrypted_matrix = decrypto(file_path, key)
+if __name__ == "__main__":
+    # Call the decrypt function with the name and key
+    file_path = "pswrd.txt"
+    key = input("Enter the key (in hexadecimal format): ").encode()
+    decrypted_matrix = decrypto(file_path, key)
 
-if decrypted_matrix is not None:
-    for row in decrypted_matrix:
-        print(row)
+    if decrypted_matrix is not None:
+        for row in decrypted_matrix:
+            print(row)

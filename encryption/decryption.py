@@ -1,5 +1,5 @@
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-import padding
+from encryption.padding import remove
 
 def decrypt(encrypted_element, key, nonce, tag):
     # Create a cipher object using AES algorithm and GCM mode
@@ -12,7 +12,7 @@ def decrypt(encrypted_element, key, nonce, tag):
     decrypted_password = decryptor.update(encrypted_element) + decryptor.finalize()
 
     # Remove PKCS7 padding from the decrypted password
-    password = padding.remove(decrypted_password)
+    password = remove(decrypted_password)
 
     # Return the decrypted password
     return password.decode()

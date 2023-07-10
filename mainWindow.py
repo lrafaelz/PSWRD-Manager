@@ -8,7 +8,8 @@ import styles as st
 from authentication.checkfields import Check
 from authentication.login import Login
 from authentication.user import User
-import encryption.encryption as  enc
+import encryption.encryption as enc
+import encryption.decrypto as dec
 import encryption.testCards as tc
 # Carregar o arquivo mainWindow.ui
 file_path = os.path.abspath("QtDesigner/filesUI/mainWindow.ui")
@@ -33,7 +34,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     grid_layout = None
 
-    matriz_senhas = None
+    matriz_senhas = []
 
 ##############################################################################################################
 
@@ -104,6 +105,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
                 # Adicionar função para salvar e visualizar o novo banco
                 self.login.updateData(self.loginWidget.inputText_Email.text(), self.loginWidget.inputText_Password.text())  
+                self.key = self.loginWidget.inputText_Password.text()  
                 if(self.login.authorizeLogin(self.loginWidget.inputText_Email.text(), self.loginWidget.inputText_Password.text())):
                     self.user.setEmail(self.login.getInputEmail())
                     self.user.setFolderName(self.login.getInputName())
@@ -256,6 +258,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
 
     def refreshAppCards(self):
+        import os.path
         if self.mainMenuWidget.widget_gridApps.layout() is not None:
             for child in self.grid_layout.findChildren(QFrame):
                 child.setParent(None)
@@ -267,7 +270,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Lista de frames
         frames = []
-        self.matriz_senhas = tc.getTestCards()
+        if os.path.isfile("pswrd.txt"):
+            self.matriz_senhas = dec.decrypto("pswrd.txt", self.key)
+            print(self.matriz_senhas)
 
         # Adicionar frames ao layout de grid
         from appCard import AppCard

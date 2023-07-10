@@ -4,7 +4,7 @@ from cryptography.hazmat.primitives import padding
 
 def generate_key():
     # Generate a random 16-byte key
-    key = os.urandom(16)
+    key = os.urandom(8)
     return key
 
 def encrypt(password, key):
