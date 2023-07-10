@@ -293,8 +293,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def backToLoginUI(self):
-        # import encryption.encrypto as enc
-        # enc.encrypt(self.key , self.matriz_senhas) EDITAR
+        import encryption.encrypto as enc
+        enc.encrypto(self.matriz_senhas, self.key)
         self.user.logout()
         self.login.resetData()
         
