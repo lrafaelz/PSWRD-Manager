@@ -5,4 +5,11 @@ teste/
 -
 gcanedac@gmail.com
 MeuBanco
-teste/
+teste/-
+teste@gmail.com
+teste.txt
+C:/Users/Rafae/OneDrive/Área de Trabalho
+-
+pswrdmanager.unipampa@gmail.com
+apresentacao.txt
+C:/Users/Rafae/OneDrive/Área de Trabalho

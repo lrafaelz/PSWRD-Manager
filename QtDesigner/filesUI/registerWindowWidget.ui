@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>976</width>
-    <height>743</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -319,7 +319,7 @@ QLineEdit:focus{
           <string/>
          </property>
          <property name="maxLength">
-          <number>20</number>
+          <number>60</number>
          </property>
          <property name="frame">
           <bool>true</bool>

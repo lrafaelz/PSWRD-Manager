@@ -1,5 +1,4 @@
 import sys
-import os
 from encryption import generate_key, encrypt
 from validation import is_valid
 import files
