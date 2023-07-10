@@ -117,3 +117,15 @@ aq.txt
 qwqw@qwqw.com
 qwqw.txt
 /home/tiago/projects/PSWRD-Manager
+-
+zzz@zzz.com
+zzz.txt
+/home/tiago/projects/PSWRD-Manager
+-
+qaz@qaz.com
+qaz.txt
+/home/tiago/projects/PSWRD-Manager
+-
+q@q.com
+q.txt
+/home/tiago/projects/PSWRD-Manager

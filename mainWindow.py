@@ -33,6 +33,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     key = None
     
     grid_layout = None
+    first_time = 0
 
     matriz_senhas = []
 
@@ -270,9 +271,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Lista de frames
         frames = []
-        if os.path.isfile("pswrd.txt"):
+        if os.path.isfile("pswrd.txt") and self.first_time == 0:
             self.matriz_senhas = dec.decrypto("pswrd.txt", self.key)
             print(self.matriz_senhas)
+            self.first_time = 1
 
         # Adicionar frames ao layout de grid
         from appCard import AppCard
