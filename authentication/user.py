@@ -33,6 +33,21 @@ class User():
             self.fullPath = self.folderPath + "/" + self.folderName
             file.close()
 
+    def verifyUser(self, userEmail):
+        file_path = os.path.abspath("authentication")
+        vetor_emails = []
+        with open(file_path + "/users.txt", 'r', encoding="utf-8") as arquivo:
+            linhas = arquivo.readlines()
+
+            for linha in linhas:
+                if '@' in linha:
+                    email = linha.split()[0]
+                    vetor_emails.append(email)
+
+            for e in vetor_emails:
+                if userEmail == e:
+                    return False
+
     def setIsLogged(self, isLogged):
         self.isLogged = isLogged
 

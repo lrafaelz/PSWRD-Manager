@@ -190,7 +190,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                         self.registerWidget.inputText_email.setStyleSheet(st.style_inputTextError)
                 else:
                         print("entrou no email")
-                        self.user.setEmail(self.registerWidget.inputText_email.text()) 
+                        self.user.setEmail(self.registerWidget.inputText_email.text())
                         textEmail = ""
                         self.registerWidget.inputText_email.setStyleSheet(st.style_inputTextOK)
                 
@@ -222,9 +222,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                         showMessage(text)
                         self.registerWidget.frame_error.setStyleSheet(st.stylePopupOK)
                         # Adicionar função para salvar e visualizar o novo banco
-                        self.user.createUser() #criar usuario no arquivo users.txt
-                        self.registerWidget.close()
-                        self.open_mainMenuUI()
+                        if self.user.verifyUser(self.registerWidget.inputText_email.text()):
+                            self.user.createUser() #criar usuario no arquivo users.txt
+                            self.registerWidget.close()
+                            self.open_mainMenuUI()
+                        else:
+                            showMessage("Email já existente")
+                            self.registerWidget.frame_error.setStyleSheet(st.stylePopupError)
     
     def openLoginUI(self):
         self.registerWidget.hide()
