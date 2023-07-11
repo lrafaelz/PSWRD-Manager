@@ -3,9 +3,11 @@ from encryption.encryption import encrypt
 from encryption.validation import is_valid
 from encryption.files import save
 
-def encrypto(matrix, key=None):
+def encrypto(matrix, PSWRDPath, fileName, key=None):
     print(matrix)
     print(key)
+    print(PSWRDPath)
+    print(fileName)
     if key is None:
         raise ValueError("No key provided.")
 
@@ -23,7 +25,7 @@ def encrypto(matrix, key=None):
 
     # Save the new file, overwriting the old one
     if encrypted_matrix is not None:
-        save("pswrd.txt", encrypted_matrix)
+        save(PSWRDPath + "/" + fileName, encrypted_matrix)
 
 if __name__ == "__main__":
     rows = int(input("Enter the number of rows in the matrix: "))
@@ -43,7 +45,8 @@ if __name__ == "__main__":
 
     try:
         # Call the encrypt_matrix function with the provided matrix and key
-        encrypted_matrix = encrypto(matrix, key)
+        pass
+        # encrypted_matrix = encrypto(matrix, PSWRDPath, fileName,  key)
 
     except ValueError as e:
         # Print the error message and exit

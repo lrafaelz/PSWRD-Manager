@@ -129,3 +129,7 @@ qaz.txt
 q@q.com
 q.txt
 /home/tiago/projects/PSWRD-Manager
+-
+rafaelluz09@live.com
+teste.txt
+C:/Users/Rafae/OneDrive/Área de Trabalho

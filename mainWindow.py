@@ -28,7 +28,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     mainMenuWidget = None
     addPSWRDModal = None
     editPSWDModal = None
-
     
     key = None
     
@@ -36,6 +35,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     first_time = 0
 
     matriz_senhas = []
+    PSWRDPath = None
 
 ##############################################################################################################
 
@@ -278,6 +278,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Adicionar frames ao layout de grid
         from appCard import AppCard
+        from appAdd import AppAdd
+        frame = AppAdd(self)
+        self.grid_layout.addWidget(frame, 0, 0)
+        linha = 0
         for i in range(len(self.matriz_senhas)):    
             frame = AppCard(self.matriz_senhas, i, self)
             frames.append(frame)
@@ -288,20 +292,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
             # Adicionar o frame ao layout de grid
             self.grid_layout.addWidget(frame, linha, coluna)
-
         empty_frame = QFrame()
         empty_frame.setFixedSize(238, 272)
-        if len(self.matriz_senhas) != 0:
-            self.grid_layout.addWidget(empty_frame, linha+1, 0)
-            self.grid_layout.addWidget(empty_frame, linha+1, 1)
-            self.grid_layout.addWidget(empty_frame, linha+1, 2)
+        self.grid_layout.addWidget(empty_frame, linha+1, 0)
+        self.grid_layout.addWidget(empty_frame, linha+1, 1)
+        self.grid_layout.addWidget(empty_frame, linha+1, 2)
 
         self.mainMenuWidget.widget_gridApps.setLayout(self.grid_layout)
 
 
     def backToLoginUI(self):
         import encryption.encrypto as enc
-        enc.encrypto(self.matriz_senhas, self.key)
+        self.PSWRDPath = self.user.folderPath
+        self.fileName = self.user.folderName
+        enc.encrypto(self.matriz_senhas, self.PSWRDPath, self.fileName, self.key) # adadasda
         self.user.logout()
         self.login.resetData()
         
@@ -317,7 +321,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.mainMenuWidget.frame_error.hide()
 
         # pushbutton adicionar nova senha
-        self.mainMenuWidget.pushButton_addNewPSWRD.clicked.connect(self.onAddButton)
+        # self.mainMenuWidget.pushButton_addNewPSWRD.clicked.connect(self.onAddButton)
 
         # pushbutton visualizar senhas
         self.mainMenuWidget.pushButton_passwords.setEnabled(False)
@@ -329,15 +333,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.mainMenuWidget.pushButton_wifiPass.clicked.connect(self.showWifiPassButton)
 
         self.mainMenuWidget.pushButton_blockPSWRDs.clicked.connect(self.backToLoginUI)
-     
-    def onAddButton(self):
-        self.addPSWRDModal = QDialog()
-        file_path = os.path.abspath("QtDesigner/filesUI/addPSWRD.ui")
-        uic.loadUi(file_path, self.addPSWRDModal)
-
-        self.addPSWRDModal.show()
-
-        self.AddPSWRDSetup()
 
     def showNotesButton(self):
            print("show notes widget")
@@ -347,70 +342,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 ############################################################################################################
 
-    def AddPSWRDSetup(self):
-        self.addPSWRDModal.spinBox_symbols.setEnabled(False)
-        self.addPSWRDModal.spinBox_uppercase.setEnabled(False)  
-        self.addPSWRDModal.spinBox_numbers.setEnabled(False)
-        self.addPSWRDModal.spinBox_lowercase.setEnabled(False)
-        self.addPSWRDModal.pushButton_generate.setEnabled(False)
-
-        self.timer = QTimer()
-        self.timer.setSingleShot(True)
-        self.addPSWRDModal.checkBox_generate.stateChanged.connect(self.generatePassword)
-
-        self.addPSWRDModal.pushButton_save.clicked.connect(self.checkFieldsSavePSWRD)
-
-        self.addPSWRDModal.pushButton_generate.clicked.connect(self.writePassword)
-
-    def generatePassword(self, estado):
-            if estado == Qt.Checked:
-                print("generate password")
-                self.addPSWRDModal.spinBox_symbols.setEnabled(True)
-                self.addPSWRDModal.spinBox_uppercase.setEnabled(True)  
-                self.addPSWRDModal.spinBox_numbers.setEnabled(True)
-                self.addPSWRDModal.spinBox_lowercase.setEnabled(True)
-                self.addPSWRDModal.pushButton_generate.setEnabled(True)
-                self.timer.start(500)
-            else:
-                self.AddPSWRDSetup()
-
-    def writePassword(self):
-        from generator.requirement import Requirement
-        from generator.temporary_password import TemporaryPassword
-        self.addPSWRDModal.Input_appPSWRD.setText(TemporaryPassword().getValue(Requirement(self.addPSWRDModal.spinBox_uppercase.value(), self.addPSWRDModal.spinBox_symbols.value(),
-                                                       self.addPSWRDModal.spinBox_numbers.value(), self.addPSWRDModal.spinBox_symbols.value())))
-        
-    def checkFieldsSavePSWRD(self):
-        teste = ''
-        # checkAppName
-        if not self.addPSWRDModal.Input_appName.text():
-            self.addPSWRDModal.Input_appPSWRD.setStyleSheet(st.style_modalInputTextError)
-        else:
-            teste += 'OK'
-            self.addPSWRDModal.Input_appName.setStyleSheet(st.style_modalInputTextOK)
-
-        # checkUsername
-        if not self.addPSWRDModal.Input_appUsername.text():
-            self.addPSWRDModal.Input_appUsername.setStyleSheet(st.style_modalInputTextError)
-        else:
-            teste += 'OK'
-            self.addPSWRDModal.Input_appUsername.setStyleSheet(st.style_modalInputTextOK)
-
-        # checkPassword
-        if not self.addPSWRDModal.Input_appPSWRD.text():
-            self.addPSWRDModal.Input_appPSWRD.setStyleSheet(st.style_modalInputTextError)
-        else:
-            teste += 'OK'
-            self.addPSWRDModal.Input_appPSWRD.setStyleSheet(st.style_modalInputTextOK)
-
-        if teste == 'OKOKOK':
-              self.addPSWRDModal.close()
-              self.addNewPSWRD()
-              self.refreshAppCards()
-        
-        
-    def addNewPSWRD(self):
-        self.matriz_senhas.append([self.addPSWRDModal.Input_appName.text(), self.addPSWRDModal.Input_appUsername.text(), self.addPSWRDModal.Input_appPSWRD.text()])
+    def addNewPSWRD(self, appName, appUser, appPass):
+        self.matriz_senhas.append([appName, appUser, appPass])
         # print(self.matriz_senhas)
         self.refreshAppCards()
 
