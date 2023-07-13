@@ -172,7 +172,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def findPath(self):
         folder_path = QFileDialog.getExistingDirectory(None, "Select Folder")
         self.registerWidget.inputText_dfPath.setText(folder_path)
-        print(folder_path)
+        #print(folder_path)
         # return folder_path
 
     def checkFieldsRegisterUI(self):
@@ -189,7 +189,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                         textEmail = "Email Invalid"
                         self.registerWidget.inputText_email.setStyleSheet(st.style_inputTextError)
                 else:
-                        print("entrou no email")
+                        #print("entrou no email")
                         self.user.setEmail(self.registerWidget.inputText_email.text())
                         textEmail = ""
                         self.registerWidget.inputText_email.setStyleSheet(st.style_inputTextOK)
@@ -269,16 +269,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 child.setParent(None)
             self.mainMenuWidget.widget_gridApps.layout().removeItem(self.grid_layout)
         self.grid_layout = QGridLayout()
-        print(self.matriz_senhas)
+        #print(self.matriz_senhas)
         # Definir o número máximo de frames por linha
         max_frames_por_linha = 3           
 
         # Lista de frames
         frames = []
         if os.path.isfile(self.user.getFolderPath()) and self.first_time == 0:
-            print(self.user.getFolderPath())
+            #print(self.user.getFolderPath())
             self.matriz_senhas = dec.decrypto(self.user.getFolderPath(), self.key)
-            print(self.matriz_senhas)
+            #print(self.matriz_senhas)
             self.first_time = 1
 
         # Adicionar frames ao layout de grid
@@ -340,20 +340,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.mainMenuWidget.pushButton_blockPSWRDs.clicked.connect(self.backToLoginUI)
 
     def showNotesButton(self):
-           print("show notes widget")
+           #print("show notes widget")
 
     def showWifiPassButton(self):
-           print("show wifi pass widget")
+           #print("show wifi pass widget")
 
 ############################################################################################################
 
     def addNewPSWRD(self, appName, appUser, appPass):
         self.matriz_senhas.append([appName, appUser, appPass])
-        # print(self.matriz_senhas)
+        #print(self.matriz_senhas)
         self.refreshAppCards()
 
     def addFromEdit(self, position, appName, appUser, appPass):
-        print(position, appName, appUser, appPass)
+        #print(position, appName, appUser, appPass)
         self.matriz_senhas[position] = [appName, appUser, appPass]
         self.refreshAppCards()
     
