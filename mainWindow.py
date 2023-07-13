@@ -275,8 +275,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Lista de frames
         frames = []
-        if os.path.isfile("pswrd.txt") and self.first_time == 0:
-            self.matriz_senhas = dec.decrypto("pswrd.txt", self.key)
+        if os.path.isfile(self.user.getFolderPath()) and self.first_time == 0:
+            print(self.user.getFolderPath())
+            self.matriz_senhas = dec.decrypto(self.user.getFolderPath(), self.key)
             print(self.matriz_senhas)
             self.first_time = 1
 

@@ -47,6 +47,7 @@ class User():
             for e in vetor_emails:
                 if userEmail == e:
                     return False
+        return True
 
     def setIsLogged(self, isLogged):
         self.isLogged = isLogged
