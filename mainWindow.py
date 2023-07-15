@@ -340,10 +340,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.mainMenuWidget.pushButton_blockPSWRDs.clicked.connect(self.backToLoginUI)
 
     def showNotesButton(self):
-           #print("show notes widget")
+       #print("show notes widget")
+       pass
 
     def showWifiPassButton(self):
-           #print("show wifi pass widget")
+       #print("show wifi pass widget")
+       pass
 
 ############################################################################################################
 
